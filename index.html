@@ -8,10 +8,7 @@
   <style>
     /* Reset */
     *{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --bg:#0b1020;--card:#0f1724;--accent:#f97316;--muted:#94a3b8;--glass: rgba(255,255,255,0.03);
-      --maxw:1100px;
-    }
+    :root{ --bg:#071b2e; --card:#0b2740; --accent:#00b4d8; --muted:#8fbcd4; --glass: rgba(255,255,255,0.03); --maxw:1100px; }
     body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071026 0%, #061423 100%); color:#e6eef8; padding:28px;}
     .wrap{max-width:var(--maxw);margin:0 auto}
     header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
@@ -28,7 +25,8 @@
     /* Member grid */
     .members{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
     .member{background:var(--glass);padding:12px;border-radius:10px;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .avatar{width:96px;height:96px;border-radius:999px;background:linear-gradient(180deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);margin-bottom:8px}
+    .avatar{width:96px;height:96px;border-radius:999px;background:linear-gradient(180deg,#074b67,#013248);display:flex;align-items:center;justify-content:center;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:8px;position:relative;box-shadow:0 6px 18px rgba(3,20,30,0.6);}
+    .avatar::after{content:'';position:absolute;left:-6px;right:-6px;bottom:-6px;top:-6px;border-radius:50%;background:conic-gradient(from 180deg at 50% 50%, transparent 0deg, transparent 200deg, rgba(255,255,255,0.06) 200deg);mask:radial-gradient(circle at 50% 40%, transparent 38%, black 39%);}
     .mname{font-weight:700}
     .mt{color:var(--muted);font-size:13px}
 
@@ -43,13 +41,21 @@
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}
     }
-  </style>
+  
+    /* Water wave animation */
+    @keyframes wave {
+      0%{background-position:0 0}
+      100%{background-position:1000px 0}
+    }
+    body{background:linear-gradient(180deg,#052033 0%, #071b2e 100%);}
+    .waves::before{content:'';position:fixed;left:0;right:0;top:0;bottom:0;z-index:0;background-image:linear-gradient(180deg, rgba(0,180,216,0.03), transparent 60%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="200" viewBox="0 0 1600 200"><path fill="%2300b4d8" fill-opacity="0.03" d="M0 100 C200 0 400 200 600 100 C800 0 1000 200 1200 100 C1400 0 1600 200 1800 100 L1800 200 L0 200 Z"></path></svg>');background-repeat:repeat-x;background-position:0 0;opacity:1;pointer-events:none;animation:wave 30s linear infinite;}
+    </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="logo">
-        <div class="mark">V</div>
+        <div class="mark"><svg width="40" height="40" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00b4d8"/><stop offset="1" stop-color="#006494"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#g1)"/><path d="M18 38c6-10 30-10 36-18-8 18-18 26-36 18z" fill="#e6f7ff" opacity="0.95"/></svg></div>
         <div>
           <h1>Varon Crew</h1>
           <div style="color:var(--muted);font-size:13px">FiveM Çete Sitesi (Yerel yönetim / demo)</div>
