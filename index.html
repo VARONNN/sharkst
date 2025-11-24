@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: rgba(0,0,0,0.0); width:100%; height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server name here! Login</title>
+    <link rel="icon" type="image/png"
+          href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/growtopia.ico"
+          sizes="16x16" />
+    <link rel="shortcut icon"
+          href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/growtopia.ico"
+          type="image/x-icon">
+    <link rel="icon"
+          href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/growtopia.ico"
+          type="image/x-icon">
+    <link media="all" rel="stylesheet"
+          href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/css/faq-main.css">
+    <link media="all" rel="stylesheet"
+          href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/css/shop-custom.css">
+    <link media="all" rel="stylesheet"
+          href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/css/ingame-custom.css">
+    <style>
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.1);
+        !important
+        }
+
+        .modal-backdrop+div {
+            overflow: auto;
+        }
+
+        .modal-body,
+        .content {
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        .modal-content {
+            background-color: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .section-title h2 {
+            background: linear-gradient(to right, #4ade80, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: none;
+        }
+
+        .reg-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 25px;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reg-title {
+            color: #4ade80;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reg-text {
+            color: #d1d5db;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .form-control.grow-text {
+            background-color: rgba(31, 41, 55, 0.6);
+            border: 1px solid rgba(75, 85, 99, 0.6);
+            color: #fff;
+            border-radius: 12px;
+            height: 50px;
+            padding: 0 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: none;
+        }
+
+        .form-control.grow-text:focus {
+            background-color: rgba(31, 41, 55, 0.9);
+            border-color: #4ade80;
+            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+        }
+
+        .form-control.grow-text::placeholder {
+            color: #9ca3af;
+        }
+
+        .btn-primary.grow-button {
+            background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);
+            border: none;
+            border-radius: 12px;
+            height: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-primary.grow-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+            background: linear-gradient(135deg, #16a34a 0%, #2563eb 100%);
+        }
+
+        .discord-btn {
+            background: #5865F2 !important;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3) !important;
+            margin-top: 15px;
+        }
+        
+        .discord-btn:hover {
+            background: #4752C4 !important;
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4) !important;
+        }
+
+        .modal-body {
+            position: relative;
+            z-index: 1;
+        }
+        .modal-body::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(34, 197, 94, 0.2);
+            filter: blur(60px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .modal-body::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(59, 130, 246, 0.2);
+            filter: blur(60px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            border: none;
+        }
+        
+        .nav-tab {
+            background: rgba(31, 41, 55, 0.6);
+            border: 1px solid rgba(75, 85, 99, 0.6);
+            color: #9ca3af;
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 14px;
+            outline: none !important;
+        }
+        
+        .nav-tab:hover {
+            background: rgba(31, 41, 55, 0.9);
+            color: #fff;
+        }
+        
+        .nav-tab.active {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: #4ade80;
+            color: #4ade80;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.1);
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgba(0,0,0,0.0);">
+<button type="button" class="btn btn-primary hidden" data-toggle="modal" id="modalButton"
+        data-target="#modalShow" data-backdrop="static" data-keyboard="false"></button>
+<div class="content">
+    <section class="common-box ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="modal fade product-list-popup" id="modalShow" tabindex="-1" role="dialog"
+                             aria-hidden="false">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="content">
+                                            <section class="common-box ">
+                                                <div class="container" style="padding: 30px;">
+                                                    <div class="section-title center-align text-center">
+                                                        <h2>Server name here!</h2>
+                                                        <p style="color: #9ca3af; margin-bottom: 25px;">Welcome back! Please login to continue.</p>
+                                                    </div>
+                                                    <div class="row div-content-center">
+                                                        <div class="col-md-12 col-sm-12">
+                                                            
+                                                            <div class="nav-tabs">
+                                                                <button class="nav-tab active" onclick="switchTab('login')" data-tab="login">Login</button>
+                                                                <button class="nav-tab" onclick="switchTab('register')" data-tab="register">Register</button>
+                                                                <button class="nav-tab" onclick="switchTab('discord')" data-tab="discord">Discord</button>
+                                                            </div>
+
+                                                            <div id="login-section">
+                                                                <form method="POST"
+                                                                    action="https://188.165.42.105/player/growid/login/validate"
+                                                                    accept-charset="UTF-8" class="" role="form"
+                                                                    required="required" autocomplete="off">
+                                                                    <input name="_token" type="hidden" value="{{tokenPlaceholder}}">
+                                                                    <input name="server" type="hidden" value="Server name here!">
+                                                                    <div class="form-group">
+                                                                        <input id="login-name" class="form-control grow-text" placeholder="GrowID Name" name="growId" type="text">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input id="password" class="form-control grow-text" placeholder="GrowID Password" name="password" type="password" value="">
+                                                                    </div>
+                                                                    <div class="form-group text-center" style="margin-top: 20px;">
+                                                                        <input class="btn btn-lg btn-primary grow-button" type="submit" name="action" value="Log in">
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                            <div id="register-section" style="display:none;">
+                                                                <form method="POST"
+                                                                    action="https://188.165.42.105/player/growid/login/validate"
+                                                                    accept-charset="UTF-8" class="" role="form"
+                                                                    required="required" autocomplete="off">
+                                                                    <input name="_token" type="hidden" value="{{tokenPlaceholder}}">
+                                                                    <input name="server" type="hidden" value="sever name">
+                                                                    <div class="form-group">
+                                                                        <input id="reg-name" class="form-control grow-text" placeholder="Desired GrowID" name="growId" type="text">
+                                                                    </div>
+                                                                    <div class="form-group text-center" style="margin-top: 20px;">
+                                                                        <input class="btn btn-lg btn-primary grow-button" type="submit" name="action" value="Register">
+                                                                    </div>
+                                                                </form>
+                                                                <div class="reg-box text-center" style="margin-top: 15px;">
+                                                                    <p class="reg-title">⚠️ Registration Info</p>
+                                                                    <p class="reg-text">
+                                                                        To register, open the <strong>Pause Menu</strong> in-game and click <strong>"Get GrowID"</strong>.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div id="discord-section" style="display:none;">
+                                                                <div class="text-center" style="padding: 20px 0;">
+                                                                    <p style="color: #d1d5db; margin-bottom: 20px; font-size: 14px;">Join our community for support, trading, and updates!</p>
+                                                                    <a href="https://discord.gg/" target="_blank" class="btn btn-lg btn-primary grow-button discord-btn" style="display: block; text-decoration: none; margin-top: 0;">Join Discord</a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+<script
+        src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/vendors/jquery/jquery-2.1.4.min.js">
+</script>
+<script
+        src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/vendors/bootstrap/javascripts/bootstrap.min.js">
+</script>
+<script>
+    function switchTab(tab) {
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('register-section').style.display = 'none';
+        document.getElementById('discord-section').style.display = 'none';
+        
+        var tabs = document.getElementsByClassName('nav-tab');
+        for(var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove('active');
+        }
+        
+        document.getElementById(tab + '-section').style.display = 'block';
+        document.querySelector('.nav-tab[data-tab="' + tab + '"]').classList.add('active');
+    }
+
+    function showRegInfo() {
+        var name = document.getElementById('reg-name').value;
+        if(name.length > 0) {
+            document.getElementById('reg-info-box').style.display = 'block';
+        }
+    }
+
+    $('document').ready(function () {
+        document.onkeydown = (e) => {
+            if (e.key == 123) {
+                e.preventDefault();
+            }
+            if (e.key == 'F12') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key == 'I') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key == 'U') {
+                e.preventDefault();
+            }
+        };
+        $('#modalButton').trigger('click');
+        $('.close').on('click', function () {
+            window.location = "https://188.165.42.105/player/validate/close"
+        });
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                for (var i = 0; i < mutation.addedNodes.length; i++) {
+                    if (mutation.addedNodes[i].tagName == 'DIV') {
+                        var thediv = mutation.addedNodes[i];
+                        var sw = window.screen.width;
+                        if (sw < 667) {
+                            $(thediv).css({
+                                'transform': 'scale(0.75)',
+                                'transform-origin': '0 0',
+                                '-webkit-transform': 'scale(0.75)',
+                                '-webkit-transform-origin': '0 0',
+                                'overflow': 'auto'
+                            });
+                        }
+                    }
+                }
+            });
+        });
+        observer.observe(document.body, {attributes: false, childList: true, characterData: false});
+    });
+</script>
+
+</html>
